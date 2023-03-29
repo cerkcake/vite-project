@@ -34,36 +34,36 @@ const Home = ({ searchInput }) => {
       <div className="grid xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
         {showLoading && <CircularProgress />}
         
-        {movies.map((m) => {
+        {movies.map((movie) => {
           return (
-            <div className="bg-gradient-to-r from-[#201d1f] to-[#3d272f] text-white hover:shadow-xl hover:shadow-black/30">
+            <div key={movie.id} className="bg-gradient-to-r from-[#201d1f] to-[#3d272f] text-white hover:shadow-xl hover:shadow-black/30">
               <div className="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow ">
                 <img
                   className="h-full w-full aspect-[3/4] object-cover"
-                  src={`https://image.tmdb.org/t/p/w220_and_h330_face${m.poster_path}`}
+                  src={`https://image.tmdb.org/t/p/w220_and_h330_face${movie.poster_path}`}
                   alt=""
                 />
 
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black group-hover:from-black/60 group-hover:via-black/90 group-hover:to-black/60"></div>
                 <div className="absolute inset-0 flex translate-y-[60%] flex-col items-center justify-center  text-center transition-all duration-500 group-hover:translate-y-0">
                   <p className="line-clamp-6 overflow-hidden mb-3 text-sm italic text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                    {m.overview}
+                    {movie.overview}
                   </p>
                 </div>
               </div>
               <div className="flex justify-between p-2">
                 <div className=" ">
                   <h1 className="line-clamp-2 font-dmserif text-lg font-bold text-white">
-                    {m.title
-                      ? m.title
-                      : m.original_title
-                      ? m.original_title
-                      : m.original_name}
+                    {movie.title
+                      ? movie.title
+                      : movie.original_title
+                      ? movie.original_title
+                      : movie.original_name}
                   </h1>
                 </div>
                 <div className="">
                   <button className="rounded-full bg-neutral-900 p-2 font-com text-sm text-white shadow shadow-black/60">
-                    {m.vote_average.toFixed(1)}
+                    {movie.vote_average?.toFixed(1)}
                   </button>
                 </div>
               </div>
