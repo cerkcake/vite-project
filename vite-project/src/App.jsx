@@ -1,15 +1,25 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from "react";
+// import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Toolbar from "@mui/material/Toolbar";
+import CssBaseline from "@mui/material/CssBaseline";
 
-function App() {
+import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
 
+import Nav from "./components/Nav";
+
+const App = (props) => {
   return (
-    <div className="App">
-      app
-    </div>
-  )
-}
+    <React.Fragment>
+      <CssBaseline />
 
-export default App
+      <Nav />
+      <Container>
+        <Toolbar />
+        <Box sx={{ my: 2 }}>Content Here</Box>
+      </Container>
+    </React.Fragment>
+  );
+};
+
+export default App;
