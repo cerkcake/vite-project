@@ -8,14 +8,15 @@ import Nav from "./components/Nav";
 import Home from "./pages/Home";
 
 const App = () => {
+  const [searchInput, setSearchInput] = React.useState("");
   return (
     <React.Fragment>
       <CssBaseline />
-      <Nav />
-      <Container>
+      <Nav searchInput={searchInput} setSearchInput={setSearchInput} />
+      <Container style={{ width: "100%" }} className="bg-black">
         <Toolbar />
-        <Box sx={{ my: 2 }}>
-          <Home />
+        <Box>
+          <Home searchInput={searchInput} />
         </Box>
       </Container>
     </React.Fragment>
