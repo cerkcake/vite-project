@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { CircularProgress } from "@mui/material";
 
+
 const Home = ({ searchInput }) => {
   const [movies, setMovies] = useState([]);
   const [showLoading, setShowLoading] = useState(false);
@@ -21,7 +22,6 @@ const Home = ({ searchInput }) => {
       url: url,
     })
       .then((response) => {
-        console.log("Res.Data : ", response.data.results);
         setMovies(response.data.results);
       })
       .finally(() => {
@@ -52,8 +52,8 @@ const Home = ({ searchInput }) => {
                 </div>
               </div>
               <div className="flex justify-between p-2">
-                <div className=" ">
-                  <h1 className="line-clamp-2 font-dmserif text-lg font-bold text-white">
+                <div>
+                  <h1 className="line-clamp-2 text-lg font-bold text-white">
                     {movie.title
                       ? movie.title
                       : movie.original_title
@@ -61,7 +61,7 @@ const Home = ({ searchInput }) => {
                       : movie.original_name}
                   </h1>
                 </div>
-                <div className="">
+                <div>
                   <button className="rounded-full bg-neutral-900 p-2 font-com text-sm text-white shadow shadow-black/60">
                     {movie.vote_average?.toFixed(1)}
                   </button>
